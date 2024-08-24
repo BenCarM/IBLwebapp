@@ -266,15 +266,13 @@
                   tricks<b>just for you<b> and your skin.
                 <br><br>
             </p>
-            <a href="{{ url('/body2') }}"><button class="body1-button1">
+            <a href="{{ url('/register') }}"><button class="body1-button1">
               <span class="body1-button1text">Find my skin type</span>
               </button>
-            <a href="{{ url('/create') }}"><button class="body1-button1">
-              <span class="body1-button1text">create</span>
-            </button> </a>
-            <a href="{{ url('/login') }}"><button class="body1-button1">
-              <span class="body1-button1text">create</span>
-            </button> </a>
+              <a href="{{ url('/login') }}"><button class="body1-button1">
+              <span class="body1-button1text">login</span>
+              </button>
+            
           </div>
         </div>
       </div>

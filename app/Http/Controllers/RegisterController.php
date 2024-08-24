@@ -10,7 +10,7 @@ class RegisterController extends Controller
 {
     public function showRegistrationForm()
     {
-        return view('body2'); // Use the body2 template
+        return view('register'); // Use the body2 template
     }
     public function index()
            {
@@ -24,11 +24,7 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
         // Validate the form data
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
-        ]);
+        
 
         // Create a new user and store in the database
         $user = User::create([
@@ -36,13 +32,18 @@ class RegisterController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
 
         // Log the user in after registration
         auth()->login($user);
 
         // Redirect the user to a specific page, e.g., dashboard
         
-        return redirect()->route('body2')->with('success', 'Registration successful!');
+       
 
     }
 }
